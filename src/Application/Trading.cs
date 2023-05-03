@@ -29,7 +29,7 @@ public class Trading
         Book.Register(order);
     }
 
-    public void Buy(TradingOrder order)
+    private void Buy(TradingOrder order)
     {
         if (Shares.ContainsKey(order.Asset))
             Shares[order.Asset] += order.Quantity;
@@ -37,7 +37,7 @@ public class Trading
             Shares[order.Asset] = order.Quantity;
     }
 
-    public void Sell(TradingOrder order)
+    private void Sell(TradingOrder order)
     {
         if (!Shares.ContainsKey(order.Asset)) return;
         Shares[order.Asset] -= order.Quantity;
